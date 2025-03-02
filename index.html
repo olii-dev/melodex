@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jukebox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎶 YouTube Jukebox 🎶</h1>
+    <input type="text" id="songUrl" placeholder="Enter YouTube link...">
+    <button onclick="addSong()">Add Song</button>
+    
+    <h2>Now Playing</h2>
+    <p id="nowPlaying">No song is playing</p>
+    
+    <div id="playerContainer">
+        <div id="player"></div>
+        <div id="progressContainer">
+          <span id="currentTime">0:00</span>
+          <input type="range" id="progressBar" value="0" min="0" max="100" step="0.1" oninput="seekToPosition()">
+          <span id="duration">0:00</span>
+        </div>
+        <div id="controls">
+          <button onclick="seekBackward()">⏪</button>
+          <button onclick="playVideo()">▶</button>
+          <button onclick="pauseVideo()">⏸</button>
+          <button onclick="seekForward()">⏩</button>
+          <button onclick="nextSong()">⏭</button>
+        </div>
+        <div id="volumeControl">
+          <button id="muteButton" onclick="toggleMute()">🔊</button>
+          <input type="range" id="volume" min="0" max="100" value="50" step="1" oninput="setVolume()">
+        </div>              
+    </div>          
+
+    <h2>Queue</h2>
+    <ul id="queue"></ul>
+  </div>
+  
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
